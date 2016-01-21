@@ -59,7 +59,7 @@ When you've gotten final approval to merge, merge the feature branch into `devel
     git merge --ff-only <initials>-<branch name>
     git push origin development
 
-Once this is done, delete your branch.
+This should automatically close out your PR on Github. Once this is done, delete your branch.
 
     git push origin --delete <initials>-<branch-name>
     git branch --delete <initials>-<branch-name>
@@ -87,6 +87,8 @@ This can act as the weekly release report. Once the report is complete, merge th
     git merge --ff-only development
     git push origin master
 
+This should automatically close out your PR on Github. Your release is complete.
+
 
 Hotfixes: Urgent Production Issues
 ----------------------------------
@@ -111,7 +113,7 @@ Once you've gotten approval, merge your hotfix branch into the `master` branch.
     git merge --ff-only <initials>-hotfix-<branch name>
     git push origin master
 
-Merge your hotfix branch into development as well.
+This should automatically close out your PR on Github.  Make sure to merge your hotfix branch into development as well.
 
     git checkout development
     git merge --ff-only <initials>-hotfix-<branch name>

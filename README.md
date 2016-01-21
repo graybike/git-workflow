@@ -123,3 +123,20 @@ Once this is done, delete your branch.
 
     git push origin --delete <initials>-hotfix-<branch-name>
     git branch --delete <initials>-hotfix-<branch-name>
+
+Migrations
+----------
+
+Branch off: `master`  
+Merge Into: `master` and `development`  
+Naming: `<initials>-migration-<branch name>`
+
+Migrations will be handled very similarly to hotfixes. The goal here is to use [zero-downtime deploys] as much as possible.
+
+In short: when trying to create a database migration, create a separate PR that only does the migration. In this PR, make sure to add in code that is compatible with both the old schema and new schema. Please read the [article referenced above][zero-downtime deploys] to figure out how to make code comaptible with various types of migrations.
+
+Merge it into master and development as you would with the hotfix branch.
+
+Once you're sure the migration has been completed without any issues, create a feature branch from the development branch build your feature that depends on the migration. Clean up the dual-schema compatible code and ensure it goes out with the next release.
+
+[zero-downtime deploys]: https://blog.codeship.com/rails-migrations-zero-downtime/
